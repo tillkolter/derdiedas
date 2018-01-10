@@ -1,0 +1,19 @@
+{
+  "name": "derdiedas",
+  "version": "0.0.1",
+  "description": "A simple Alexa skill to receive German grammar information",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tillkolter/derdiedas.git"
+  },
+  "author": "Till Kolter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tillkolter/derdiedas/issues"
+  },
+  "homepage": "https://github.com/tillkolter/derdiedas#readme"
+}
