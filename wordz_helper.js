@@ -85,14 +85,14 @@ WordzHelper.prototype.getArticle = function (featureSet) {
       if (genus === 'MAS') {
         if (['NOM', 'AKK'].includes(casus)) {
           return 'der'
-        } else if (genus === 'FEM') {
-          if (['NOM', 'AKK'].includes(casus)) {
-            return 'die'
-          }
-        } else if (genus === 'NEU') {
-          if (['NOM', 'AKK'].includes(casus)) {
-            return 'das'
-          }
+        }
+      } else if (genus === 'FEM') {
+        if (['NOM', 'AKK'].includes(casus)) {
+          return 'die'
+        }
+      } else if (genus === 'NEU') {
+        if (['NOM', 'AKK'].includes(casus)) {
+          return 'das'
         }
       }
     } else if (['NOM', 'AKK'].includes(genus)) {
@@ -113,6 +113,7 @@ WordzHelper.prototype.matchArticle = function (response, article1, article2) {
   }
   var word = Object.keys(response)[0]
 
+  console.log('articles ' + matchingArticles)
   if (matchingArticles.includes(article1.toLowerCase())) {
     if (matchingArticles.includes(article2.toLowerCase())) {
       return 'Beides ist richtig.'
@@ -122,10 +123,10 @@ WordzHelper.prototype.matchArticle = function (response, article1, article2) {
   } else if (matchingArticles.includes(article2.toLowerCase())) {
     return article2 + ' ' + word + ' ist richtig.'
   } else {
-    var unifiedArticles = matchingArticles.filter(function(item, pos) {
-      return matchingArticles.indexOf(item) === pos;
+    var unifiedArticles = matchingArticles.filter(function (item, pos) {
+      return matchingArticles.indexOf(item) === pos
     })
-    return 'Weder noch. Es müsste lauten: ' + unifiedArticles.map(function (x) { return x + ' ' + word } ).join(' oder ')
+    return 'Weder noch. Es müsste lauten: ' + unifiedArticles.map(function (x) { return x + ' ' + word }).join(' oder ')
   }
 }
 

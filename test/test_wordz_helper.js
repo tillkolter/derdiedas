@@ -85,5 +85,28 @@ describe('WordzHelper', function () {
         )
       })
     })
+    context('with Auto and options Das and Die', function () {
+      var autoResponse = {
+        "Auto": [
+          {
+            "features": "SUB:AKK:SIN:NEU",
+            "stem": "Auto"
+          },
+          {
+            "features": "SUB:DAT:SIN:NEU",
+            "stem": "Auto"
+          },
+          {
+            "features": "SUB:NOM:SIN:NEU",
+            "stem": "Auto"
+          }
+        ]
+      }
+      it('returns Das Auto', function () {
+        expect(subject.matchArticle(autoResponse, 'Die', 'Das')).to.eq(
+          'Das Auto ist richtig.'
+        )
+      })
+    })
   })
 })
