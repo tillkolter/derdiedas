@@ -1,28 +1,38 @@
 'use strict'
-// var _ = require('lodash')
-var rp = require('request-promise')
-var ENDPOINT = 'http://wordz.kolter.it:3696/wordinfo/?term='
+const https = require('https');
+
+const HOSTNAME = 'wordz.kolter.it'
+const ENDPOINT_PATH = '/wordinfo/'
 
 function WordzHelper () { }
 
+
 WordzHelper.prototype.requestWordInfos = function (term) {
-  return this.getWordInfos(term).then(
-    function (response) {
-      console.log('success - received airport info for ' + term)
-      return response.body
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: HOSTNAME,
+      port: 3696,
+      path: `${ENDPOINT_PATH}?term=${encodeURIComponent(term)}`,
+      method: 'GET'
     }
-  )
+
+    console.log(`options ${JSON.stringify(options)}`)
+
+    var req = https.request(options, (res) => {
+      res.on('data', (d) => {
+        resolve(JSON.parse(d))
+      });
+    })
+
+    req.on('error', function(e) {
+      reject(e)
+    });
+
+    req.end();
+
+  })
 }
 
-WordzHelper.prototype.getWordInfos = function (term) {
-  var options = {
-    method: 'GET',
-    uri: ENDPOINT + term,
-    resolveWithFullResponse: true,
-    json: true
-  }
-  return rp(options)
-}
 
 WordzHelper.prototype.getSubstantiveForms = function (response) {
   var result = []
@@ -72,7 +82,7 @@ WordzHelper.prototype.getArticle = function (featureSet) {
 
     if (numerus === 'SIN') {
       if (['GEN', 'DAT'].includes(casus)) {
-        if (['MAS', 'NEU']) {
+        if (['MAS', 'NEU'].includes(genus)) {
           if ('GEN' === casus) {
             return 'des'
           } else {

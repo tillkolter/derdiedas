@@ -1,0 +1,48 @@
+{
+	"Agentur": [
+		{
+			"features": "SUB:AKK:SIN:FEM",
+			"stem": "Agentur"
+		},
+		{
+			"features": "SUB:DAT:SIN:FEM",
+			"stem": "Agentur"
+		},
+		{
+			"features": "SUB:GEN:SIN:FEM",
+			"stem": "Agentur"
+		},
+		{
+			"features": "SUB:NOM:SIN:FEM",
+			"stem": "Agentur"
+		}
+	],
+	"Auto": [
+		{
+			"features": "SUB:AKK:SIN:NEU",
+			"stem": "Auto"
+		},
+		{
+			"features": "SUB:DAT:SIN:NEU",
+			"stem": "Auto"
+		},
+		{
+			"features": "SUB:NOM:SIN:NEU",
+			"stem": "Auto"
+		}
+	],
+	"Mann": [
+		{
+			"features": "SUB:AKK:SIN:MAS",
+			"stem": "Mann"
+		},
+		{
+			"features": "SUB:DAT:SIN:MAS",
+			"stem": "Mann"
+		},
+		{
+			"features": "SUB:NOM:SIN:MAS",
+			"stem": "Mann"
+		}
+	]
+}

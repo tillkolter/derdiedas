@@ -1,0 +1,160 @@
+{
+	"languageModel": {
+		"types": [
+			{
+				"name": "DETERMINER",
+				"values": [
+					{
+						"id": null,
+						"name": {
+							"value": "Der",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Die",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Das",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Den",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Dem",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Des",
+							"synonyms": []
+						}
+					}
+				]
+			},
+			{
+				"name": "WORD",
+				"values": [
+					{
+						"id": null,
+						"name": {
+							"value": "Agentur",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Abend",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Mischung",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Strand",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Nikolaus",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Zoo",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Regenwurm",
+							"synonyms": []
+						}
+					},
+					{
+						"id": null,
+						"name": {
+							"value": "Quark",
+							"synonyms": []
+						}
+					}
+				]
+			}
+		],
+		"intents": [
+			{
+				"name": "AMAZON.CancelIntent",
+				"samples": []
+			},
+			{
+				"name": "AMAZON.HelpIntent",
+				"samples": []
+			},
+			{
+				"name": "AMAZON.RepeatIntent",
+				"samples": []
+			},
+			{
+				"name": "AMAZON.StopIntent",
+				"samples": []
+			},
+			{
+				"name": "ArticleIntent",
+				"samples": [
+					"Heißt es {DetA} oder {DetB} {Word}",
+					"Ist es {DetA} oder {DetB} {Word}",
+					"Sagt man {DetA} oder {DetB} {Word}",
+					"{DetA} oder {DetB} {Word}",
+					"Heißt es {DetA} {Word} oder {DetB} {Word}",
+					"Ist es {DetA} {Word} oder {DetB} {Word}",
+					"Sagt man {DetA} {Word} oder {DetB} {Word}",
+					"{DetA} {Word} oder {DetB} {Word}"
+				],
+				"slots": [
+					{
+						"name": "DetA",
+						"type": "DETERMINER"
+					},
+					{
+						"name": "DetB",
+						"type": "DETERMINER"
+					},
+					{
+						"name": "Word",
+						"type": "WORD"
+					}
+				]
+			}
+		],
+		"invocationName": "Mir Bitte"
+	}
+}

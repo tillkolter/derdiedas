@@ -9,7 +9,9 @@
     "precommit": "npm run lint"
   },
   "standard": {
-    "env": [ "mocha" ]
+    "env": [
+      "mocha"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,20 +25,19 @@
   "homepage": "https://github.com/tillkolter/derdiedas#readme",
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^5.0.0",
     "standard": "*"
   },
   "dependencies": {
-    "alexa-app": "^4.2.0",
-    "chai": "^4.1.2",
-    "chai-as-promised": "^7.1.1",
-    "lodash": "^4.17.4",
-    "mocha": "^4.1.0",
-    "request-promise": "^4.2.2"
+    "alexa-sdk": "^1.0.25",
+    "https": "^1.0.0"
   }
 }
