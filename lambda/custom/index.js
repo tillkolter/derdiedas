@@ -37,7 +37,7 @@ const handlers = {
 
     if (word) {
       const wordzHelper = new WordzHelper()
-      let intent = this;
+      let intent = this
       wordzHelper.requestWordInfos(word).then(function (wordInfos) {
         let answer = wordzHelper.matchArticle(wordInfos, determiner1, determiner2)
         console.log(`${word}, ${determiner1}, ${determiner2} -> ${answer}`)
@@ -48,7 +48,7 @@ const handlers = {
         console.log(`error: ${err}`)
         intent.attributes.speechOutput = `Ich konnte keine Daten für das Wort ${word} finden`
         intent.attributes.repromptSpeech = 'Mache einfach weiter'
-        intent.emit(':tell', 'oops!');
+        intent.emit(':tell', 'oops!')
       })
     } else {
       this.attributes.speechOutput = 'Ich habe das Wort nicht verstanden. Kannst du es bitte wiederholen?'
@@ -56,8 +56,8 @@ const handlers = {
     }
   },
   'AMAZON.HelpIntent': function () {
-    this.attributes.speechOutput = "Hilfe"
-    this.attributes.repromptSpeech = "Mithilfe"
+    this.attributes.speechOutput = 'Hilfe'
+    this.attributes.repromptSpeech = 'Mithilfe'
 
     this.response.speak(this.attributes.speechOutput).listen(this.attributes.repromptSpeech)
     this.emit(':responseReady')
@@ -75,21 +75,21 @@ const handlers = {
     this.emit(':responseReady')
   },
   'SessionEndedRequest': function () {
-    console.log(`Session ended: ${this.event.request.reason}`);
+    console.log(`Session ended: ${this.event.request.reason}`)
   },
   'Unhandled': function () {
-    this.attributes.speechOutput = 'Hilfe';
-    this.attributes.repromptSpeech = 'Schmilfe';
-    this.response.speak(this.attributes.speechOutput).listen(this.attributes.repromptSpeech);
-    this.emit(':responseReady');
-  },
+    this.attributes.speechOutput = 'Hilfe'
+    this.attributes.repromptSpeech = 'Schmilfe'
+    this.response.speak(this.attributes.speechOutput).listen(this.attributes.repromptSpeech)
+    this.emit(':responseReady')
+  }
 }
 
 exports.handler = function (event, context, callback) {
-  const alexa = Alexa.handler(event, context, callback);
-  alexa.APP_ID = APP_ID;
+  const alexa = Alexa.handler(event, context, callback)
+  alexa.APP_ID = APP_ID
   // To enable string internationalization (i18n) features, set a resources object.
-  alexa.resources = languageStrings;
-  alexa.registerHandlers(handlers);
-  alexa.execute();
-};
+  alexa.resources = languageStrings
+  alexa.registerHandlers(handlers)
+  alexa.execute()
+}

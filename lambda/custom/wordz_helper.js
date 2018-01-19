@@ -1,11 +1,10 @@
 'use strict'
-const https = require('https');
+const https = require('https')
 
 const HOSTNAME = 'wordz.kolter.it'
 const ENDPOINT_PATH = '/wordinfo/'
 
 function WordzHelper () { }
-
 
 WordzHelper.prototype.requestWordInfos = function (term) {
   return new Promise((resolve, reject) => {
@@ -16,23 +15,19 @@ WordzHelper.prototype.requestWordInfos = function (term) {
       method: 'GET'
     }
 
-    console.log(`options ${JSON.stringify(options)}`)
-
     var req = https.request(options, (res) => {
       res.on('data', (d) => {
         resolve(JSON.parse(d))
-      });
+      })
     })
 
-    req.on('error', function(e) {
+    req.on('error', function (e) {
       reject(e)
-    });
+    })
 
-    req.end();
-
+    req.end()
   })
 }
-
 
 WordzHelper.prototype.getSubstantiveForms = function (response) {
   var result = []
@@ -76,14 +71,14 @@ WordzHelper.prototype.articleGenusList = function (article) {
 
 WordzHelper.prototype.getArticle = function (featureSet) {
   if (featureSet.includes('SUB')) {
-    var casus = featureSet[1]
-    var numerus = featureSet[2]
-    var genus = featureSet[3]
+    const casus = featureSet[1]
+    const numerus = featureSet[2]
+    const genus = featureSet[3]
 
     if (numerus === 'SIN') {
       if (['GEN', 'DAT'].includes(casus)) {
         if (['MAS', 'NEU'].includes(genus)) {
-          if ('GEN' === casus) {
+          if (casus === 'GEN') {
             return 'des'
           } else {
             return 'dem'
@@ -107,7 +102,7 @@ WordzHelper.prototype.getArticle = function (featureSet) {
       }
     } else if (['NOM', 'AKK'].includes(genus)) {
       return 'die'
-    } else if ('GEN' === genus) {
+    } else if (genus === 'GEN') {
       return 'der'
     } else {
       return 'den'
